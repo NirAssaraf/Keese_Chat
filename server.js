@@ -34,7 +34,7 @@ io.on('connection', socket => {
     responses = [];
     var firstThreeRes = db.collection("messages")
     .where('room', '==', room)
-    .orderBy('time', 'desc');
+    .orderBy('time');
      firstThreeRes.onSnapshot(snapshot => {
        snapshot.docChanges().forEach(function(change) {
            var message = change.doc.data();
