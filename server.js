@@ -49,7 +49,7 @@ io.on('connection', socket => {
       .to(user.room)
       .emit(
         'message',
-   //     formatMessage(botName, `${user.username} has joined the chat`)
+        formatMessage(botName, `${user.username} has joined the chat`)
       );
 
     // Send users and room info
@@ -78,7 +78,7 @@ io.on('connection', socket => {
     if (user) {
       io.to(user.room).emit(
         'message',
-  //      formatMessage(botName, `${user.username} has left the chat`)
+        formatMessage(botName, `${user.username} has left the chat`)
       );
 
       // Send users and room info
@@ -94,16 +94,7 @@ const PORT = process.env.PORT || 3000;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-const typeDefs = gql`
-  type Room {
-    name: String
-    messages:[Episode!]!
-  }
 
-  type Query {
-    rooms: [Room]
-  }
-`;
 
 
 
